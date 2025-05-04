@@ -14,7 +14,6 @@ const PronunciationSchema = z
     .object({
         ipa: z.string().nullish(),
         audioUrl: z.string().url({ message: "Invalid audio URL format" }).nullish(), // Validate if it's a valid URL
-        // Can add other pronunciation format fields as needed, e.g., sampa: z.string().nullish()
     })
     .strict() // Disallow unrecognized keys in the object
     .nullish(); // The entire pronunciation object is optional

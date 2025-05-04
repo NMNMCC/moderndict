@@ -4,6 +4,7 @@ import { read_image_as_data_url } from "../utils/image.js";
 import { concat } from "../utils/concat.js";
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
+import Vips from "wasm-vips";
 
 export const scan_config = ({
     schema,
@@ -14,9 +15,9 @@ export const scan_config = ({
 }: {
     model: string;
     schema: z.ZodTypeAny;
-    image: Buffer;
+    image: Vips.Image;
     prev?: Scanning | undefined;
-    prev_image?: Buffer | undefined;
+    prev_image?: Vips.Image | undefined;
 }) => {
     const is_incomplete = prev?.incomplete_entries && prev.incomplete_entries.length > 0 && prev_image;
     const result: OpenAI.Chat.Completions.ChatCompletionCreateParamsNonStreaming = {

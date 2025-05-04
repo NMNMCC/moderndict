@@ -45,12 +45,12 @@ export const crop = command({
 
         const cropped = resolve_crop_args(image, crop_args);
 
-        const top_left = crop_image(cropped, 0, 0, size * 4, size).pngsaveBuffer().buffer;
-        const bottom_right = crop_image_relative(
-            cropped,
-            cropped.width - size * 4,
-            cropped.height - size,
-        ).pngsaveBuffer().buffer;
+        const top_left = crop_image(cropped, 0, 0, size * 4, size)
+            .deleteLater()
+            .pngsaveBuffer().buffer;
+        const bottom_right = crop_image_relative(cropped, cropped.width - size * 4, cropped.height - size)
+            .deleteLater()
+            .pngsaveBuffer().buffer;
 
         console.log("Top-Left:", "\n", (await imageToAnsi(top_left, {})).ansi);
         console.log("Bottom-Right:", "\n", (await imageToAnsi(bottom_right, {})).ansi);

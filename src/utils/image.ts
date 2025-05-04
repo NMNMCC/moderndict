@@ -36,15 +36,10 @@ export const crop_image_relative = (
         image.height - (top_left_y + bottom_right_y),
     );
 
-export const optimize_image = (image_buffer: Buffer): Buffer => {
-    const image = vips.Image.newFromBuffer(image_buffer);
-    const buffer = Buffer.from(image.webpsaveBuffer({ Q: 50 }));
-    image.delete();
-    return buffer;
-};
+export const save_optimized_image = (image: Vips.Image): Buffer => Buffer.from(image.webpsaveBuffer({ Q: 50 }));
 
-export const read_image_as_data_url = (image_buffer: Buffer) =>
-    `data:image/webp;base64,${optimize_image(image_buffer).toString("base64")}`;
+export const read_image_as_data_url = (image: Vips.Image) =>
+    `data:image/webp;base64,${save_optimized_image(image).toString("base64")}`;
 
 export const test = async () => {
     const image = await pdf.read_pdf_page_as_image(

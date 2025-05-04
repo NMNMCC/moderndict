@@ -10,6 +10,8 @@ import { JSONFilePreset } from "lowdb/node";
 import { drop } from "../utils/drop.js";
 import { z } from "zod";
 import { EntrySchema, JDXFSchema } from "../schemas/jxdf.js";
+import Vips from "wasm-vips";
+import { vips } from "../utils/init.js";
 
 export const scan = command({
     name: "scan",
@@ -111,7 +113,7 @@ export const scan = command({
         print("OpenAI client loaded");
 
         let last: z.infer<typeof Scanning> | undefined;
-        let last_image: Buffer | undefined;
+        let last_image: Vips.Image | undefined;
 
         print("Scanning pages...");
         for (const page_index of range(page_first ?? 0, page_last ?? pdf.countPages() - 1)) {
@@ -122,7 +124,7 @@ export const scan = command({
             print("Page read");
 
             print("Reading page as image...");
-            const image = await read_pdf_page_as_image(page, resolution);
+            const image = vips.Image.newFromBuffer(await read_pdf_page_as_image(page, resolution));
             print("Page as image read");
 
             print("Generating config...");
@@ -136,13 +138,14 @@ export const scan = command({
             print("Config generated:", config);
 
             try {
-                print("Parsing...");
+                print(`Parsing page ${page_index}...`);
                 const res = await client.beta.chat.completions.parse({ ...config });
 
-                const current = res.choices[0]?.message.parsed as unknown as z.infer<typeof Scanning>;
+                const current: z.infer<typeof Scanning> = res.choices[0]?.message.parsed as any;
                 print("Parsed:", current);
 
                 last = current;
+                last_image?.delete();
                 last_image = image;
 
                 await db.update((dict) => {
