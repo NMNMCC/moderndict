@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@instructor-ai/instructor':
-        specifier: ^1.6.0
-        version: 1.6.0(openai@4.97.0(zod@3.24.3))(zod@3.24.3)
       chafa-wasm:
         specifier: ^0.2.5
         version: 0.2.5
@@ -209,12 +206,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@instructor-ai/instructor@1.6.0':
-    resolution: {integrity: sha512-V47nUqkaZomPMmfujO0DWfjSuQaK0eusU1tA6VkO6Z69H41za3NZIWfJ+8ww05DaZVDvCbGK7E8/HjeNMaq0PQ==}
-    peerDependencies:
-      openai: '>=4.58.0'
-      zod: '>=3.23.8'
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -804,9 +795,6 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  ramda@0.29.1:
-    resolution: {integrity: sha512-OfxIeWzd4xdUNxlWhgFazxsA/nl3mS4/jGZI5n00uWOoSSFRhC1b6gl6xvmzUamgmqELraWp0J/qqVlXYPDPyA==}
-
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
@@ -822,11 +810,6 @@ packages:
     resolution: {integrity: sha512-C5VvvgCCyfyotVITIAv+4efVytl5F7wt+/I2i9q9GZcEXW9BP52YYOXC58igUi+LFZVHukErIIqQSWwv/M3WRw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
-
-  schema-stream@3.2.2:
-    resolution: {integrity: sha512-7hwI/4lbo8sOs7sRbKW9Bh+5qPHOj12tVpskHq1tYakVlWEpdLgeEKXXgzGLaAP1Bw+DcoB4DmdA7/nSxGI5OA==}
-    peerDependencies:
-      zod: ^3.23.3
 
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
@@ -990,22 +973,10 @@ packages:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
 
-  zod-stream@2.0.0:
-    resolution: {integrity: sha512-s6eltmWLeJfpZ+G3vmeG3LFJBzI2/lLTMkZHZbxr1E/0lemQoszRZqK8YGdpK17aNHHA7i6QBb9ZbXPlLe6kJQ==}
-    peerDependencies:
-      openai: '>=4.24.1'
-      zod: ^3.23.3
-
   zod-to-json-schema@3.24.5:
     resolution: {integrity: sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==}
     peerDependencies:
       zod: ^3.24.1
-
-  zod-validation-error@3.4.0:
-    resolution: {integrity: sha512-ZOPR9SVY6Pb2qqO5XHt+MkkTRxGXb4EVtnjc9JpXUOtUB1T9Ru7mZOT361AN3MsetVe7R0a1KZshJDZdgp9miQ==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      zod: ^3.18.0
 
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
@@ -1086,13 +1057,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.3':
     optional: true
-
-  '@instructor-ai/instructor@1.6.0(openai@4.97.0(zod@3.24.3))(zod@3.24.3)':
-    dependencies:
-      openai: 4.97.0(zod@3.24.3)
-      zod: 3.24.3
-      zod-stream: 2.0.0(openai@4.97.0(zod@3.24.3))(zod@3.24.3)
-      zod-validation-error: 3.4.0(zod@3.24.3)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -1617,8 +1581,6 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  ramda@0.29.1: {}
-
   readdirp@4.1.2: {}
 
   resolve-from@5.0.0: {}
@@ -1650,11 +1612,6 @@ snapshots:
       '@rollup/rollup-win32-ia32-msvc': 4.40.1
       '@rollup/rollup-win32-x64-msvc': 4.40.1
       fsevents: 2.3.3
-
-  schema-stream@3.2.2(zod@3.24.3):
-    dependencies:
-      ramda: 0.29.1
-      zod: 3.24.3
 
   shebang-command@2.0.0:
     dependencies:
@@ -1825,18 +1782,7 @@ snapshots:
       string-width: 5.1.2
       strip-ansi: 7.1.0
 
-  zod-stream@2.0.0(openai@4.97.0(zod@3.24.3))(zod@3.24.3):
-    dependencies:
-      openai: 4.97.0(zod@3.24.3)
-      schema-stream: 3.2.2(zod@3.24.3)
-      zod: 3.24.3
-      zod-to-json-schema: 3.24.5(zod@3.24.3)
-
   zod-to-json-schema@3.24.5(zod@3.24.3):
-    dependencies:
-      zod: 3.24.3
-
-  zod-validation-error@3.4.0(zod@3.24.3):
     dependencies:
       zod: 3.24.3
 

@@ -1,23 +1,27 @@
 {
     "name": "moderndict",
-    "version": "1.0.0",
+    "version": "0.0.2",
     "description": "",
-    "main": "index.js",
+    "main": "./dist/index.js",
+    "bin": {
+        "moderndict": "./dist/index.js"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
     "scripts": {
-        "build": "pnpm tsup src/index.ts --dts --format esm --clean && pnpm ncc build dist/index.js -m -C"
+        "build": "tsup src/index.ts --dts --format esm --clean"
     },
     "packageManager": "pnpm@10.8.1",
     "type": "module",
-    "devDependencies": {
+    "dependencies": {
         "@types/node": "^22.15.3",
         "dotenv": "^16.5.0",
         "prettier": "^3.5.3",
         "tsup": "^8.4.0",
         "tsx": "^4.19.4",
-        "typescript": "^5.8.3"
-    },
-    "dependencies": {
-        "@instructor-ai/instructor": "^1.6.0",
+        "typescript": "^5.8.3",
         "chafa-wasm": "^0.2.5",
         "cmd-ts": "^0.13.0",
         "lowdb": "^7.0.1",

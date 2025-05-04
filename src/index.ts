@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import "dotenv/config";
 import { run, subcommands } from "cmd-ts";
 import { scan } from "./commands/scan.js";
